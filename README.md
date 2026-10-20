@@ -71,7 +71,17 @@ The studio is not password-protected on Vercel. Other visitors see only their ow
 
 Replace the card image with an approved final image if needed. Its current size is 981 × 1602. The name sits at 28.3% from the top; adjust `.card-guest` only if you change the card layout. The full-open aspect ratio in `.scroll-assembly.open .scroll-paper` should match the replacement image. `fitGuestName` reduces long names to fit the designated line.
 
-Animation timing: ribbon release immediately; rotation starts at 650 ms; unrolling starts at 1,600 ms and lasts 2,200 ms; replay appears at 3,900 ms. These can be adjusted without changing the wedding card. This is a CSS recreation inspired by your physical scroll photos, not a video made from those photos.
+Animation timing: ribbon unties immediately (loops, knot and tails move apart); rotation starts at 650 ms; unrolling starts at 1,600 ms and lasts 2,200 ms; replay appears at 3,900 ms. These can be adjusted without changing the wedding card. The gold ribbon is a lightweight CSS recreation inspired by physical scroll photos, not a video made from those photos.
+
+## Local preview
+
+Serve the static `dist` folder with the built-in Node development server (no npm install required):
+
+```bash
+npm run dev
+```
+
+Then open `http://127.0.0.1:4173/`. Press Ctrl+C to stop.
 
 ## Checks
 
