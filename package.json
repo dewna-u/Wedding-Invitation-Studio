@@ -5,6 +5,10 @@
   "description": "Animated scroll invitations and browser-local guest management",
   "scripts": {
     "build": "node scripts/check.cjs",
-    "test": "node --test tests/core.test.cjs"
+    "test": "node --test tests/core.test.cjs",
+    "dev": "serve dist --listen 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.6"
   }
 }
