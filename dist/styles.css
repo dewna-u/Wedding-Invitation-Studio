@@ -158,8 +158,31 @@ transition:transform .65s cubic-bezier(.4,.05,.25,1),opacity .5s ease}
   .scroll-assembly.untying .ribbon-wrap{opacity:0;transform:none}
 }
 
-.page-bottom{display:block;width:100vw;max-width:100vw;height:auto;margin:28px 0 0;margin-left:calc(50% - 50vw);pointer-events:none;mix-blend-mode:multiply;opacity:.82;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 62%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 62%,transparent)}
 .invite-header,.guest-greeting,.scroll-stage,.invite-controls,.invite-footer{position:relative;z-index:1}
-@media(max-width:768px){
-  .page-bottom{margin-top:16px;opacity:.9}
-}
+
+/* Ivory lotus garden belongs to the webpage, behind the invitation. */
+.lotus-definitions{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+#guest-view{isolation:isolate;padding-bottom:115px}
+.lotus-background{position:absolute;top:var(--lotus-top,65%);left:0;right:0;bottom:0;z-index:0;pointer-events:none;overflow:hidden;opacity:0;transition:opacity 1.7s ease;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.1) 10%,rgba(0,0,0,.4) 35%,rgba(0,0,0,.78) 67%,#000 100%);mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.1) 10%,rgba(0,0,0,.4) 35%,rgba(0,0,0,.78) 67%,#000 100%)}
+#guest-view.lotus-visible .lotus-background{opacity:1}
+.lotus-side{position:absolute;bottom:0;width:clamp(220px,40vw,570px);height:100%;fill:none;stroke:none;overflow:visible}
+.lotus-side-left{left:-35px}.lotus-side-right{right:-35px;transform:scaleX(-1)}
+.lotus-bottom{position:absolute;bottom:-22px;left:0;width:100%;height:auto;max-height:210px;fill:none;stroke:none}
+#guest-view .scroll-stage,#guest-view .guest-greeting,#guest-view .invite-footer{position:relative;z-index:1}
+#guest-view .invite-footer{color:#866c46;text-shadow:0 1px 4px #fffaf0}
+@media(max-width:700px){#guest-view{padding-bottom:105px}.lotus-side{width:clamp(200px,52vw,340px)}.lotus-side-left{left:-65px}.lotus-side-right{right:-65px}.lotus-bottom{width:170%;left:-35%;bottom:-8px;max-height:145px}}
+@media(prefers-reduced-motion:reduce){.lotus-background{transition:none}}
+
+/* Watercolor opening vignette and a fuller garden at the venue level. */
+.couple-portrait{position:relative;z-index:1;width:clamp(230px,27vw,330px);margin:-12px auto 13px;pointer-events:none;background:transparent;animation:portrait-arrive 1.5s ease both}
+.couple-portrait img{display:block;width:100%;height:auto;background:transparent;filter:url(#paper-blend);-webkit-mask-image:radial-gradient(ellipse 96% 94% at 50% 52%,#000 62%,transparent 86%);mask-image:radial-gradient(ellipse 96% 94% at 50% 52%,#000 62%,transparent 86%)}
+@keyframes portrait-arrive{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.lotus-background{-webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.48) 10%,rgba(0,0,0,.85) 26%,#000 48%);mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.48) 10%,rgba(0,0,0,.85) 26%,#000 48%)}
+.lotus-venue-spray{position:absolute;top:0;width:clamp(190px,27vw,355px);height:auto;fill:none;stroke:none;overflow:visible;opacity:.92}
+.lotus-venue-left{left:-18px;transform:rotate(-4deg);transform-origin:50% 100%}.lotus-venue-right{right:-18px;transform:scaleX(-1) rotate(-4deg);transform-origin:50% 100%}
+.lotus-side{width:clamp(255px,43vw,600px)}.lotus-side-left{left:-15px}.lotus-side-right{right:-15px}
+@media(max-width:700px){#guest-view{padding-top:34px}.couple-portrait{width:min(70vw,280px);margin:-3px auto 15px}.invite-header h1{font-size:31px}.invite-header p{letter-spacing:2.2px}.guest-greeting{margin-top:20px}.scroll-stage{padding-top:18px}.lotus-venue-spray{width:clamp(160px,43vw,240px);opacity:1}.lotus-venue-left{left:-25px}.lotus-venue-right{right:-25px}.lotus-side{width:clamp(235px,64vw,360px)}.lotus-side-left{left:-58px}.lotus-side-right{right:-58px}.lotus-background{-webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.55) 8%,rgba(0,0,0,.95) 22%,#000 38%);mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.55) 8%,rgba(0,0,0,.95) 22%,#000 38%)}}
+@media(prefers-reduced-motion:reduce){.couple-portrait{animation:none}}
+/* Keep the heading readable; only the illustration blends into the ivory page. */
+#guest-view .invite-header{mix-blend-mode:normal}
+.toast{opacity:0;pointer-events:none;transition:transform .3s,opacity .3s}.toast.show{opacity:1}
